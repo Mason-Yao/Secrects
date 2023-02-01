@@ -1,0 +1,31 @@
+<%- include("partials/header") -%>
+<h1>Home</h1>
+<p><%- content %></p>
+<% otherContent.forEach(function(each){ %>
+    <h2><a href="/posts/<%- each.title %>"><%- each.title %></a></h2>
+    <p id="content"><%- each.content.substring(0,100)%><span id="dots">...</span><span id="more">
+            <%- each.content.substring(100)%>
+        </span></p>
+<button onclick="expandContent()" id="myBtn">read more</button>
+<% }) %>
+<%- include("partials/footer") -%>
+<style type="text/css">
+    #more {display: none;}
+</style>
+<script>
+    function expandContent() {
+        var dots = document.getElementById("dots");
+        var moreText = document.getElementById("more");
+        var btnText = document.getElementById("myBtn");
+
+        if (dots.style.display === "none") {
+            dots.style.display = "inline";
+            btnText.innerHTML = "Read more";
+            moreText.style.display = "none";
+        } else {
+            dots.style.display = "none";
+            btnText.innerHTML = "Read less";
+            moreText.style.display = "inline";
+        }
+    }
+</script>
