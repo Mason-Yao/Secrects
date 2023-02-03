@@ -1,8 +1,8 @@
 <%- include("partials/header") -%>
 <h1>Home</h1>
 <p><%- content %></p>
-<% otherContent.forEach(function(each){ %>
-    <h2><a href="/posts/<%- each.title %>"><%- each.title %></a></h2>
+<% posts.forEach(function(each){ %>
+    <h2><a href="/posts/<%- each._id %>"><%- each.title %></a></h2>
     <p id="content"><%- each.content.substring(0,100)%><span id="dots">...</span><span id="more">
             <%- each.content.substring(100)%>
         </span></p>
