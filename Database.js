@@ -45,7 +45,7 @@ exports.addPost = function (post) {
 }
 
 exports.updatePostById = function (id, revisedPost) {
-    DailyPost.update({_id: id}, revisedPost, function (err, res) {
+    DailyPost.updateOne({_id: id}, revisedPost, function (err, res) {
         console.log(err ? err : res.modifiedCount);
     })
 }

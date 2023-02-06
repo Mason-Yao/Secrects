@@ -3,7 +3,10 @@
 <p><%- content %></p>
 <% posts.forEach(function(each){ %>
     <h2><a href="/posts/<%- each._id %>"><%- each.title %></a></h2>
-    <p id="content"><%- each.content.substring(0,100)%><span id="dots">...</span><span id="more">
+    <p id="content"><%- each.content.substring(0,100)%>
+        <% if (each.length > 100) { %>
+            <span id="dots">...</span>
+        <% } %><span id="more">
             <%- each.content.substring(100)%>
         </span></p>
 <button onclick="expandContent()" id="myBtn">read more</button>
@@ -14,6 +17,7 @@
 </style>
 <script>
     function expandContent() {
+
         var dots = document.getElementById("dots");
         var moreText = document.getElementById("more");
         var btnText = document.getElementById("myBtn");
